@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Linking, A
 const jeta = require("../assets/foto.jpg")
 import React, { useState } from 'react';
 import { StatusBar } from 'react-native'
-//Hola, sorry si el codigo se ve feo, voy empezando jejeje.
+// Hola, sorry si el codigo se ve feo, voy empezando jejeje.
 
 const Main = () => {
     const [isEnabled, setIsEnabled] = useState(false);
@@ -10,7 +10,7 @@ const Main = () => {
     return(
     <SafeAreaView>    
         <ScrollView>
-            <StatusBar barStyle = "light-content" backgroundColor = "black" translucent = {true}/>
+            <StatusBar barStyle="light-content" backgroundColor="black" translucent={true}/>
             <View style={[estilasos.introContenedor, { backgroundColor: isEnabled ? '#ede5ed' : '#fffbba' }]}>
                 {/*La verda, hacer el switch fue super dificil, de hecho tuve que ver como 10 tutoriales jeje*/}
                 <Switch
@@ -81,8 +81,10 @@ const Main = () => {
         </ScrollView>
     </SafeAreaView>
 )}
+
 export default Main
-//Creo que exaguere bastante con los estilos, perdon
+
+// Creo que exaguere bastante con los estilos, perdon
 const estilasos = StyleSheet.create({
     introContenedor: {
         paddingTop: 50,
@@ -212,4 +214,4 @@ const estilasos = StyleSheet.create({
         fontSize: 13,
      }
     })
-    //Eso fue todo, espero que no sea un proyecto muy feo jeje.
+    // Eso fue todo, espero que no sea un proyecto muy feo jeje.
