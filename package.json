@@ -9,6 +9,8 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.1.6",
+    "@react-native/babel-preset": "^0.75.0-main",
     "expo": "~50.0.14",
     "expo-status-bar": "~1.11.1",
     "react": "18.2.0",
