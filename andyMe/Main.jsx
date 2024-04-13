@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Linking, Alert, Switch,} from 'react-native'
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Linking, Alert, Switch, SafeAreaView } from 'react-native'
 const jeta = require("../assets/foto.jpg")
 import React, { useState } from 'react';
 import { StatusBar } from 'react-native'
@@ -8,6 +8,7 @@ const Main = () => {
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     return(
+    <SafeAreaView>    
     <ScrollView>
     <StatusBar barStyle = "light-content" backgroundColor = "black" translucent = {true}/>
     <View style={[estilasos.introContenedor, { backgroundColor: isEnabled ? '#ede5ed' : '#fffbba' }]}>
@@ -94,6 +95,7 @@ const Main = () => {
         <Text></Text>
     </View>
     </ScrollView>
+    </SafeAreaView>
 )}
 export default Main
 //Creo que exaguere bastante con los estilos, perdon
