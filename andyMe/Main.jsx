@@ -13,6 +13,7 @@ import { SafeAreaProvider, SafeAreaView, useSafeAreaInsets } from 'react-native-
 const jeta = require("../assets/foto.jpg")
 import React, { useState } from 'react';
 import { StatusBar } from 'react-native'
+import { InfoCard } from './InfoCard';
 // Hola, sorry si el codigo se ve feo, voy empezando jejeje.
 
 const Main = () => {
@@ -48,16 +49,14 @@ const Main = () => {
                 Bienvenido a mi primera aplicación, en la que me gustaría que me conocieras. 
                 Esto va a ser a través de 5 puntos en los que hablaré un poco de mí. Comencemos:
             </Text>
-            <View style={[estilasos.infoCard, { backgroundColor: isEnabled ? '#2bb6c8' : '#fffb86' }]}>
-                <Text style={estilasos.numberText}>1.- Cara 😦</Text>
+
+            <InfoCard title="1.- Cara 😦" color={isEnabled ? '#2bb6c8' : '#fffb86'}>
                 <Text style={estilasos.primerTexto}>Aquí pueden ver una foto mia con pelo recojido y la cara de la roca jajaja.</Text>
                 <Image source={jeta} style={estilasos.fotoJeta}/>
-            </View>
-            
-            <View style={[estilasos.infoCard, { backgroundColor: isEnabled ? '#bc91bc' : '#ffe64d' }]}>
-                <Text style={estilasos.numberText}>2.- Música ♫</Text>
-                <Text style={estilasos.primerTexto2}>Probablemente mi cosa favorita en este mundo es la música. Aquí una lista de mis diez canciones favoritas,
-                el orden es al azar ya que no me puedo decidir por una jeje:</Text>
+            </InfoCard>
+
+            <InfoCard title="2.- Música ♫" color={isEnabled ? '#bc91bc' : '#ffe64d'}>
+                <Text style={estilasos.primerTexto2}>Probablemente mi cosa favorita en este mundo es la música. Aquí una lista de mis diez canciones favoritas, el orden es al azar ya que no me puedo decidir por una jeje:</Text>
                 <Text style={estilasos.listMusical}>Gary Coleman - The sky is crying</Text>
                 <Text style={estilasos.listMusical}>The score - Unstopable</Text>
                 <Text style={estilasos.listMusical}>Zayde wolf - Holy water</Text>
@@ -69,9 +68,9 @@ const Main = () => {
                 <Text style={estilasos.listMusical}>City wolf - Hands up</Text>
                 <Text style={estilasos.listMusical}>NF - Why</Text>
                 <Text style={estilasos.listMusical}>Alhan - Un cuerdo en el manicomnio</Text>
-            </View>
-            <View style={[estilasos.infoCard, { backgroundColor: isEnabled ? '#d67087' : '#ffb02f' }]}>
-                <Text style={estilasos.numberText}>3.- Canción favorita ♪</Text>
+            </InfoCard>
+
+            <InfoCard title="3.- Canción favorita ♪" color={isEnabled ? '#d67087' : '#ffb02f'}>
                 <Text style={estilasos.tercerTexto}>Aunque acabo de decir que no tengo una canción preferida, si que hay una que destaca sobre las otras, esta es: <Text style={estilasos.enef}>Hope de NF</Text> </Text>
                 <TouchableOpacity style={{
                     alignSelf: 'center',
@@ -85,26 +84,27 @@ const Main = () => {
                     <Text>NF - HOPE</Text>
                 </TouchableOpacity>
                 <Text style={estilasos.tercerTexto}>El botón de arriba te lleva al video oficial, yo sé que el rap no es para todos, pero esta es especial por su significado.  </Text>
-            </View>
-            <View style={[estilasos.infoCard, { backgroundColor: isEnabled ? '#c8902b' : '#ff784b' }]}>
-                <Text style={estilasos.numberText}>4.- Datos generales 🗣️</Text>
-                <Text style={estilasos.primerTexto}>Mi nombre completo: <Text style={estilasos.enef}>Erick Andres Juarez Ramos</Text></Text>
+            </InfoCard>
+
+            <InfoCard title="4.- Datos generales 🗣️" color={isEnabled ? '#c8902b' : '#ff784b'}>
+            <Text style={estilasos.primerTexto}>Mi nombre completo: <Text style={estilasos.enef}>Erick Andres Juarez Ramos</Text></Text>
                 <Text style={estilasos.primerTexto}>Mi edad es de:<Text style={estilasos.enef}> 16 años</Text> </Text>
                 <Text style={estilasos.primerTexto}>Mi altura es de:<Text style={estilasos.enef}> 181 centimetros</Text></Text>
                 <Text style={estilasos.primerTexto}>Mi comida favorita:<Text style={estilasos.enef}> Espagueti a la boloñesa </Text><TouchableOpacity onPress={()=> Alert.alert('El espagueti a la boloñesa es una comida tipica de Italia ☝️🤓')}><Text style={estilasos.cuestion}>?</Text></TouchableOpacity></Text>
                 <Text style={estilasos.primerTexto}>Mi pelicula favorita:<Text style={estilasos.enef}> Snoopy: la pelicula </Text><TouchableOpacity onPress={()=> Alert.alert('No me da pena admitirlo, es la mejor pelicula')}><Text style={estilasos.cuestion}>?</Text></TouchableOpacity></Text>
                 <Text style={estilasos.primerTexto}>Mi videojuego favorito:<Text style={estilasos.enef}> Titanfall 2 </Text><TouchableOpacity onPress={()=> Alert.alert('Titanfall 2 es un juego que salio en 2016 y es una obra maestra.')}><Text style={estilasos.cuestion}>?</Text></TouchableOpacity></Text>
                 <Text style={estilasos.primerTexto}>Budget: $22 (pesos)<Text style={estilasos.enef}> </Text></Text>
-            </View>
-            <View style={[estilasos.infoCard, { backgroundColor: isEnabled ? '#1d8e5a' : '#e7d667' }]}>
-                <Text style={estilasos.numberText}>5.- Programación 🖥️🤓</Text>
+            </InfoCard>
+
+            <InfoCard title="5.- Programación 🖥️🤓" color={isEnabled ? '#1d8e5a' : '#e7d667'}>
                 <Text style={estilasos.titulos}>Razones</Text>
                 <Text style={estilasos.chiquillos}>Empecé en este mundo hace bastante poco y fue para ayudar a un tío en una tarea. Aunque sinceramennte me enamoré del código y me gusta bastante programar, aunque no sea muy bueno. Me gustaría mencionar que quien me inspiró para continuar fue mi primo Santi, de hecho gracias a él estoy en React native!</Text>
                 <Text style={estilasos.titulos}>Hasta ahora</Text>
                 <Text style={estilasos.chiquillos}>Al inicio, fue con el lenguaje c++ aunque no le entedí ni un poco. Entonces empecé un curso de html y css, en esos no era tan malo. Luego, justamente mi primo me dijo que aprendiera Javascript, aunque no soy muy bueno en el lenguaje, continué. Y como se ve ahora, estoy con las dos biblitecas de JS, React y React Native. </Text>
                 <Text style={estilasos.titulos}>Futuro</Text>
                 <Text style={estilasos.chiquillos}>Me gustaría volverme un programador full-stack principalmente de esta biblioteca. Aprender una par de lenguajes más y practicar los que "sé" actualmente. También me gustaría poder trabajar en esto. Muchas gracias por llegar hasta aquí.</Text>
-            </View>
+            </InfoCard>
+
             <View style={[estilasos.final, {
                 marginBottom: bottom,
             }]}>
@@ -138,11 +138,6 @@ const estilasos = StyleSheet.create({
     },
     primerTexto: {
         marginBottom: 12,
-    },
-    numberText: {
-        fontWeight: 'bold',
-        fontSize: 20,
-        marginBottom: 8,
     },
     fotoJeta: {
         width: 200,
@@ -195,7 +190,6 @@ const estilasos = StyleSheet.create({
         color: 'white',
         textAlign: 'center',
         fontWeight: 'bold',
-        marginBottom: 16,
      },
      titulos: {
         fontSize: 17,
@@ -208,12 +202,5 @@ const estilasos = StyleSheet.create({
         textAlign: 'center',
         fontSize: 13,
      },
-     infoCard: {
-        borderRadius: 7,
-        borderWidth: 2,
-        borderColor: 'black',
-        marginBottom: 16,
-        padding: 12,
-     }
 })
 // Eso fue todo, espero que no sea un proyecto muy feo jeje.
