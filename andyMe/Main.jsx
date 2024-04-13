@@ -8,18 +8,28 @@ const Main = () => {
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     return(
-    <SafeAreaView  style={[estilasos.introContenedor, { backgroundColor: isEnabled ? '#ede5ed' : '#fffbba' }]}>    
-        <ScrollView>
-            <StatusBar barStyle="light-content" backgroundColor="black" translucent={true}/>
+    <SafeAreaView style={{ backgroundColor: isEnabled ? '#ede5ed' : '#fffbba' }}>    
+        <ScrollView style={{
+            padding: 16,
+        }}>
+            <StatusBar barStyle="dark-content" backgroundColor="black" translucent={true}/>
             {/*La verda, hacer el switch fue super dificil, de hecho tuve que ver como 10 tutoriales jeje*/}
-            <Switch
-                style={estilasos.unSwitch}
-                trackColor={{ false: "#767577", true: "#81b0ff" }}
-                thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
-                onValueChange={toggleSwitch}
-                value={isEnabled}
-            />
-            <Text style={estilasos.switchTexto}>Colores</Text>
+            <View style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+            }}>
+                <Text style={{
+                    fontSize: 20,
+                    fontWeight: 'bold',
+                    marginRight: 12,
+                }}>Colores: </Text>
+                <Switch
+                    trackColor={{ false: "#767577", true: "#81b0ff" }}
+                    thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+                    onValueChange={toggleSwitch}
+                    value={isEnabled}
+                />
+            </View>
             <Text style={estilasos.testo}>¡Qué tal!</Text>
             <Text style={estilasos.midddleText}>
                 Bienvenido a mi primera aplicación, en la que me gustaría que me conocieras. 
@@ -84,24 +94,6 @@ export default Main
 
 // Creo que exaguere bastante con los estilos, perdon
 const estilasos = StyleSheet.create({
-    introContenedor: {
-        paddingTop: 50,
-        alignItems: 'center',
-        backgroundColor: '#f0f8ff',
-        flex: 1,
-    },
-    unSwitch: {
-        paddingLeft: 300,
-        position: 'absolute',
-        paddingTop: 50,
-    },
-    switchTexto: {
-        position: 'absolute',
-        paddingTop: 62,
-        paddingLeft: 300,
-        fontSize: 10,
-        textAlign: 'center'
-    },
     testo: {
         fontWeight: 'bold',
         textAlign: 'center',
