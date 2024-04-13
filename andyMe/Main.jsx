@@ -48,13 +48,13 @@ const Main = () => {
                 Bienvenido a mi primera aplicación, en la que me gustaría que me conocieras. 
                 Esto va a ser a través de 5 puntos en los que hablaré un poco de mí. Comencemos:
             </Text>
-            <View style={[estilasos.primerView, { backgroundColor: isEnabled ? '#2bb6c8' : '#fffb86' }]}>
+            <View style={[estilasos.infoCard, { backgroundColor: isEnabled ? '#2bb6c8' : '#fffb86' }]}>
                 <Text style={estilasos.numberText}>1.- Cara 😦</Text>
                 <Text style={estilasos.primerTexto}>Aquí pueden ver una foto mia con pelo recojido y la cara de la roca jajaja.</Text>
                 <Image source={jeta} style={estilasos.fotoJeta}/>
             </View>
             
-            <View style={[estilasos.segundoView, { backgroundColor: isEnabled ? '#bc91bc' : '#ffe64d' }]}>
+            <View style={[estilasos.infoCard, { backgroundColor: isEnabled ? '#bc91bc' : '#ffe64d' }]}>
                 <Text style={estilasos.numberText}>2.- Música ♫</Text>
                 <Text style={estilasos.primerTexto2}>Probablemente mi cosa favorita en este mundo es la música. Aquí una lista de mis diez canciones favoritas,
                 el orden es al azar ya que no me puedo decidir por una jeje:</Text>
@@ -70,15 +70,23 @@ const Main = () => {
                 <Text style={estilasos.listMusical}>NF - Why</Text>
                 <Text style={estilasos.listMusical}>Alhan - Un cuerdo en el manicomnio</Text>
             </View>
-            <View style={[estilasos.tercerView, { backgroundColor: isEnabled ? '#d67087' : '#ffb02f' }]}>
+            <View style={[estilasos.infoCard, { backgroundColor: isEnabled ? '#d67087' : '#ffb02f' }]}>
                 <Text style={estilasos.numberText}>3.- Canción favorita ♪</Text>
                 <Text style={estilasos.tercerTexto}>Aunque acabo de decir que no tengo una canción preferida, si que hay una que destaca sobre las otras, esta es: <Text style={estilasos.enef}>Hope de NF</Text> </Text>
-                <TouchableOpacity onPress={()=> Linking.openURL('https://youtu.be/tsmPCi7NKrg?si=z5O6Lh9ru9780tg1')} style={estilasos.hope}>
-                    <Text style={estilasos.nf}>NF - HOPE</Text>
+                <TouchableOpacity style={{
+                    alignSelf: 'center',
+                    marginVertical: 8,
+                    backgroundColor: '#fffbba',
+                    padding: 8,
+                    borderRadius: 8,
+                    borderColor: 'black',
+                    borderWidth: .5,
+                }} onPress={() => Linking.openURL('https://youtu.be/tsmPCi7NKrg?si=z5O6Lh9ru9780tg1')}>
+                    <Text>NF - HOPE</Text>
                 </TouchableOpacity>
                 <Text style={estilasos.tercerTexto}>El botón de arriba te lleva al video oficial, yo sé que el rap no es para todos, pero esta es especial por su significado.  </Text>
             </View>
-            <View style={[estilasos.cuartoView, { backgroundColor: isEnabled ? '#c8902b' : '#ff784b' }]}>
+            <View style={[estilasos.infoCard, { backgroundColor: isEnabled ? '#c8902b' : '#ff784b' }]}>
                 <Text style={estilasos.numberText}>4.- Datos generales 🗣️</Text>
                 <Text style={estilasos.primerTexto}>Mi nombre completo: <Text style={estilasos.enef}>Erick Andres Juarez Ramos</Text></Text>
                 <Text style={estilasos.primerTexto}>Mi edad es de:<Text style={estilasos.enef}> 16 años</Text> </Text>
@@ -88,7 +96,7 @@ const Main = () => {
                 <Text style={estilasos.primerTexto}>Mi videojuego favorito:<Text style={estilasos.enef}> Titanfall 2 </Text><TouchableOpacity onPress={()=> Alert.alert('Titanfall 2 es un juego que salio en 2016 y es una obra maestra.')}><Text style={estilasos.cuestion}>?</Text></TouchableOpacity></Text>
                 <Text style={estilasos.primerTexto}>Budget: $22 (pesos)<Text style={estilasos.enef}> </Text></Text>
             </View>
-            <View style={[estilasos.quintoView, { backgroundColor: isEnabled ? '#1d8e5a' : '#e7d667' }]}>
+            <View style={[estilasos.infoCard, { backgroundColor: isEnabled ? '#1d8e5a' : '#e7d667' }]}>
                 <Text style={estilasos.numberText}>5.- Programación 🖥️🤓</Text>
                 <Text style={estilasos.titulos}>Razones</Text>
                 <Text style={estilasos.chiquillos}>Empecé en este mundo hace bastante poco y fue para ayudar a un tío en una tarea. Aunque sinceramennte me enamoré del código y me gusta bastante programar, aunque no sea muy bueno. Me gustaría mencionar que quien me inspiró para continuar fue mi primo Santi, de hecho gracias a él estoy en React native!</Text>
@@ -128,13 +136,6 @@ const estilasos = StyleSheet.create({
         textAlign: 'center',
         marginBottom: 16,
     },
-    primerView: {
-        borderRadius: 7,
-        borderWidth: 2,
-        borderColor: 'black',
-        marginBottom: 16,
-        padding: 12,
-    },
     primerTexto: {
         marginBottom: 12,
     },
@@ -151,23 +152,9 @@ const estilasos = StyleSheet.create({
         borderColor: 'black',
         borderWidth: .5,
     },
-    segundoView: {
-        borderRadius: 7,
-        borderWidth: 2,
-        borderColor: 'black',
-        marginBottom: 16,
-        padding: 12,
-    },
     listMusical: {
         fontSize: 15,
         padding: 5,
-    },
-    tercerView: {
-        borderRadius: 7,
-        borderWidth: 2,
-        borderColor: 'black',
-        marginBottom: 16,
-        padding: 12,
     },
     tercerTexto: {
         textAlign: 'center',
@@ -178,11 +165,10 @@ const estilasos = StyleSheet.create({
      },
      hope: {
         alignItems: 'center',
-        top: 2,
      },
      nf: {
         backgroundColor: 'white',
-        borderRadius: 4,
+        borderRadius: 8,
         fontSize: 15,
         padding: 4,  
         lineHeight: 21,
@@ -190,26 +176,12 @@ const estilasos = StyleSheet.create({
         borderColor: 'black',
         borderWidth: .5,
      },
-     cuartoView: {
-        borderRadius: 7,
-        borderWidth: 2,
-        borderColor: 'black',
-        marginBottom: 16,
-        padding: 12,
-     },
      cuestion: {
         fontSize: 10,
         color: 'white',
         backgroundColor: 'black',
         borderRadius: 30,
         padding: 2,
-     },
-     quintoView: {
-        borderRadius: 7,
-        borderWidth: 2,
-        borderColor: 'black',
-        marginBottom: 16,
-        padding: 12,
      },
      final: {
         fontWeight: 'bold',
@@ -235,6 +207,13 @@ const estilasos = StyleSheet.create({
         alignItems: 'center',
         textAlign: 'center',
         fontSize: 13,
+     },
+     infoCard: {
+        borderRadius: 7,
+        borderWidth: 2,
+        borderColor: 'black',
+        marginBottom: 16,
+        padding: 12,
      }
-    })
-    // Eso fue todo, espero que no sea un proyecto muy feo jeje.
+})
+// Eso fue todo, espero que no sea un proyecto muy feo jeje.
