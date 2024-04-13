@@ -8,45 +8,44 @@ const Main = () => {
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     return(
-    <SafeAreaView>    
+    <SafeAreaView  style={[estilasos.introContenedor, { backgroundColor: isEnabled ? '#ede5ed' : '#fffbba' }]}>    
         <ScrollView>
             <StatusBar barStyle="light-content" backgroundColor="black" translucent={true}/>
-            <View style={[estilasos.introContenedor, { backgroundColor: isEnabled ? '#ede5ed' : '#fffbba' }]}>
-                {/*La verda, hacer el switch fue super dificil, de hecho tuve que ver como 10 tutoriales jeje*/}
-                <Switch
-                    style={estilasos.unSwitch}
-                    trackColor={{ false: "#767577", true: "#81b0ff" }}
-                    thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
-                    onValueChange={toggleSwitch}
-                    value={isEnabled}
-                />
-                <Text style={estilasos.switchTexto}>Colores</Text>
-                <Text style={estilasos.testo}>¡Qué tal!</Text>
-                <Text style={estilasos.midddleText}>
-                    Bienvenido a mi primera aplicación, en la que me gustaría que me conocieras. 
-                    Esto va a ser a través de 5 puntos en los que hablaré un poco de mí. Comencemos:
-                </Text>
-                <View style={[estilasos.primerView, { backgroundColor: isEnabled ? '#2bb6c8' : '#fffb86' }]}>
-                    <Text style={estilasos.numberText}>1.- Cara 😦</Text>
-                    <Text style={estilasos.primerTexto}>Aquí pueden ver una foto mia con pelo recojido y la cara de la roca jajaja.</Text>
-                    <Image source={jeta} style={estilasos.fotoJeta}/>
-                </View>
-                <View style={[estilasos.segundoView, { backgroundColor: isEnabled ? '#bc91bc' : '#ffe64d' }]}>
-                    <Text style={estilasos.numberText}>2.- Música ♫</Text>
-                    <Text style={estilasos.primerTexto2}>Probablemente mi cosa favorita en este mundo es la música. Aquí una lista de mis diez canciones favoritas,
-                    el orden es al azar ya que no me puedo decidir por una jeje:</Text>
-                    <Text style={estilasos.listMusical}>Gary Coleman - The sky is crying</Text>
-                    <Text style={estilasos.listMusical}>The score - Unstopable</Text>
-                    <Text style={estilasos.listMusical}>Zayde wolf - Holy water</Text>
-                    <Text style={estilasos.listMusical}>NF - Clouds</Text>
-                    <Text style={estilasos.listMusical}>Sam tinnesz - Even if it hurts</Text>
-                    <Text style={estilasos.listMusical}>Ray Charles - Hit the road Jack</Text>
-                    <Text style={estilasos.listMusical}>James Brown - It's a mans world</Text>
-                    <Text style={estilasos.listMusical}>Sleeping wolf - Freaks like us</Text>
-                    <Text style={estilasos.listMusical}>City wolf - Hands up</Text>
-                    <Text style={estilasos.listMusical}>NF - Why</Text>
-                    <Text style={estilasos.listMusical}>Alhan - Un cuerdo en el manicomnio</Text>
-                </View>
+            {/*La verda, hacer el switch fue super dificil, de hecho tuve que ver como 10 tutoriales jeje*/}
+            <Switch
+                style={estilasos.unSwitch}
+                trackColor={{ false: "#767577", true: "#81b0ff" }}
+                thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+                onValueChange={toggleSwitch}
+                value={isEnabled}
+            />
+            <Text style={estilasos.switchTexto}>Colores</Text>
+            <Text style={estilasos.testo}>¡Qué tal!</Text>
+            <Text style={estilasos.midddleText}>
+                Bienvenido a mi primera aplicación, en la que me gustaría que me conocieras. 
+                Esto va a ser a través de 5 puntos en los que hablaré un poco de mí. Comencemos:
+            </Text>
+            <View style={[estilasos.primerView, { backgroundColor: isEnabled ? '#2bb6c8' : '#fffb86' }]}>
+                <Text style={estilasos.numberText}>1.- Cara 😦</Text>
+                <Text style={estilasos.primerTexto}>Aquí pueden ver una foto mia con pelo recojido y la cara de la roca jajaja.</Text>
+                <Image source={jeta} style={estilasos.fotoJeta}/>
+            </View>
+            <View style={[estilasos.segundoView, { backgroundColor: isEnabled ? '#bc91bc' : '#ffe64d' }]}>
+                <Text style={estilasos.numberText}>2.- Música ♫</Text>
+                <Text style={estilasos.primerTexto2}>Probablemente mi cosa favorita en este mundo es la música. Aquí una lista de mis diez canciones favoritas,
+                el orden es al azar ya que no me puedo decidir por una jeje:</Text>
+                <Text style={estilasos.listMusical}>Gary Coleman - The sky is crying</Text>
+                <Text style={estilasos.listMusical}>The score - Unstopable</Text>
+                <Text style={estilasos.listMusical}>Zayde wolf - Holy water</Text>
+                <Text style={estilasos.listMusical}>NF - Clouds</Text>
+                <Text style={estilasos.listMusical}>Sam tinnesz - Even if it hurts</Text>
+                <Text style={estilasos.listMusical}>Ray Charles - Hit the road Jack</Text>
+                <Text style={estilasos.listMusical}>James Brown - It's a mans world</Text>
+                <Text style={estilasos.listMusical}>Sleeping wolf - Freaks like us</Text>
+                <Text style={estilasos.listMusical}>City wolf - Hands up</Text>
+                <Text style={estilasos.listMusical}>NF - Why</Text>
+                <Text style={estilasos.listMusical}>Alhan - Un cuerdo en el manicomnio</Text>
+            </View>
             <View style={[estilasos.tercerView, { backgroundColor: isEnabled ? '#d67087' : '#ffb02f' }]}>
                 <Text style={estilasos.numberText}>3.- Canción favorita ♪</Text>
                 <Text style={estilasos.tercerTexto}>Aunque acabo de decir que no tengo una canción preferida, si que hay una que destaca sobre las otras, esta es: <Text style={estilasos.enef}>Hope de NF</Text> </Text>
@@ -73,7 +72,6 @@ const Main = () => {
                 <Text style={estilasos.chiquillos}>Al inicio, fue con el lenguaje c++ aunque no le entedí ni un poco. Entonces empecé un curso de html y css, en esos no era tan malo. Luego, justamente mi primo me dijo que aprendiera Javascript, aunque no soy muy bueno en el lenguaje, continué. Y como se ve ahora, estoy con las dos biblitecas de JS, React y React Native. </Text>
                 <Text style={estilasos.titulos}>Futuro</Text>
                 <Text style={estilasos.chiquillos}>Me gustaría volverme un programador full-stack principalmente de esta biblioteca. Aprender una par de lenguajes más y practicar los que "sé" actualmente. También me gustaría poder trabajar en esto. Muchas gracias por llegar hasta aquí.</Text>
-            </View>
             </View>
             <View style={estilasos.final}>
                 <Text style={estilasos.finalText}>Muchas gracias por leer. Como lo pueden notar, no es el proyecto más bonito, pero quería probar todos mis conocimientos actuales de React Native, luego de casi un mes. Ya estoy trabajando en la siguiente aplicación, estará lista para el 25 de abril. ¡Gracias!</Text>
