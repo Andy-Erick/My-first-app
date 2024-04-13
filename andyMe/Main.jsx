@@ -1,4 +1,15 @@
-import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Linking, Alert, Switch, SafeAreaView } from 'react-native'
+import {
+    View,
+    Text,
+    StyleSheet,
+    Image,
+    ScrollView,
+    TouchableOpacity,
+    Linking,
+    Alert,
+    Switch
+} from 'react-native'
+import { SafeAreaProvider, SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 const jeta = require("../assets/foto.jpg")
 import React, { useState } from 'react';
 import { StatusBar } from 'react-native'
@@ -7,8 +18,10 @@ import { StatusBar } from 'react-native'
 const Main = () => {
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+    const { bottom } = useSafeAreaInsets();
+
     return(
-    <SafeAreaView style={{ backgroundColor: isEnabled ? '#ede5ed' : '#fffbba' }}>    
+    <SafeAreaView style={{ backgroundColor: isEnabled ? '#ede5ed' : '#fffbba', paddingBottom: -bottom }}>    
         <ScrollView style={{
             padding: 16,
         }}>
@@ -40,6 +53,7 @@ const Main = () => {
                 <Text style={estilasos.primerTexto}>Aquí pueden ver una foto mia con pelo recojido y la cara de la roca jajaja.</Text>
                 <Image source={jeta} style={estilasos.fotoJeta}/>
             </View>
+            
             <View style={[estilasos.segundoView, { backgroundColor: isEnabled ? '#bc91bc' : '#ffe64d' }]}>
                 <Text style={estilasos.numberText}>2.- Música ♫</Text>
                 <Text style={estilasos.primerTexto2}>Probablemente mi cosa favorita en este mundo es la música. Aquí una lista de mis diez canciones favoritas,
@@ -83,14 +97,22 @@ const Main = () => {
                 <Text style={estilasos.titulos}>Futuro</Text>
                 <Text style={estilasos.chiquillos}>Me gustaría volverme un programador full-stack principalmente de esta biblioteca. Aprender una par de lenguajes más y practicar los que "sé" actualmente. También me gustaría poder trabajar en esto. Muchas gracias por llegar hasta aquí.</Text>
             </View>
-            <View style={estilasos.final}>
+            <View style={[estilasos.final, {
+                marginBottom: bottom,
+            }]}>
                 <Text style={estilasos.finalText}>Muchas gracias por leer. Como lo pueden notar, no es el proyecto más bonito, pero quería probar todos mis conocimientos actuales de React Native, luego de casi un mes. Ya estoy trabajando en la siguiente aplicación, estará lista para el 25 de abril. ¡Gracias!</Text>
             </View>
         </ScrollView>
     </SafeAreaView>
 )}
 
-export default Main
+export default () => {
+    return(
+        <SafeAreaProvider>
+            <Main/>
+        </SafeAreaProvider>
+    )
+};
 
 // Creo que exaguere bastante con los estilos, perdon
 const estilasos = StyleSheet.create({
@@ -99,23 +121,27 @@ const estilasos = StyleSheet.create({
         textAlign: 'center',
         justifyContent: 'center',
         fontSize: 30,
+        marginBottom: 12,
     },
     midddleText: {
         fontSize: 20,
-        textAlign: 'center'
+        textAlign: 'center',
+        marginBottom: 16,
     },
     primerView: {
         borderRadius: 7,
         borderWidth: 2,
         borderColor: 'black',
+        marginBottom: 16,
+        padding: 12,
+    },
+    primerTexto: {
+        marginBottom: 12,
     },
     numberText: {
         fontWeight: 'bold',
-        padding: 5,
         fontSize: 20,
-    },
-    primerTexto: {
-        padding: 10,
+        marginBottom: 8,
     },
     fotoJeta: {
         width: 200,
@@ -129,10 +155,8 @@ const estilasos = StyleSheet.create({
         borderRadius: 7,
         borderWidth: 2,
         borderColor: 'black',
-    },
-    primerTexto2: {
-        padding: 10,
-        textAlign: 'center'
+        marginBottom: 16,
+        padding: 12,
     },
     listMusical: {
         fontSize: 15,
@@ -142,6 +166,8 @@ const estilasos = StyleSheet.create({
         borderRadius: 7,
         borderWidth: 2,
         borderColor: 'black',
+        marginBottom: 16,
+        padding: 12,
     },
     tercerTexto: {
         textAlign: 'center',
@@ -168,6 +194,8 @@ const estilasos = StyleSheet.create({
         borderRadius: 7,
         borderWidth: 2,
         borderColor: 'black',
+        marginBottom: 16,
+        padding: 12,
      },
      cuestion: {
         fontSize: 10,
@@ -180,23 +208,28 @@ const estilasos = StyleSheet.create({
         borderRadius: 7,
         borderWidth: 2,
         borderColor: 'black',
-        maxWidth: '95%'
+        marginBottom: 16,
+        padding: 12,
      },
      final: {
         fontWeight: 'bold',
         textAlign: 'center',
         justifyContent: 'center',
         backgroundColor: 'black',
+        borderRadius: 8,
+        padding: 12,
      },
      finalText:{
         color: 'white',
         textAlign: 'center',
         fontWeight: 'bold',
+        marginBottom: 16,
      },
      titulos: {
         fontSize: 17,
         fontWeight: 'bold',
         alignSelf: 'center',
+        marginVertical: 8
      },
      chiquillos: {
         alignItems: 'center',
